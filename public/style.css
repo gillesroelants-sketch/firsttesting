@@ -1,52 +1,181 @@
-body {
+:root{
+  /* Replace these with Proximus brand tokens */
+  --brand-primary: #6c2aa6; /* placeholder */
+  --brand-accent: #ff007f;  /* placeholder */
+  --bg: #ffffff;
+  --text: #0b0b0b;
+  --muted: #6b7280;
+  --success: #007a3d;
+  --warning: #b45309;
+  --danger: #b91c1c;
+  --max-width: 900px;
+
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  margin: 24px;
-  color: #111;
+  font-size: 16px;
+  line-height: 1.45;
+  color-scheme: light;
 }
-main {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.input-row {
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
+  flex-direction: column;
+  min-height: 100vh;
 }
-input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  font-size: 16px;
+
+.site-header{
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1rem;
+  background: linear-gradient(90deg, rgba(108,42,166,0.06), rgba(255,0,127,0.03));
 }
-button {
-  padding: 8px 12px;
-  font-size: 16px;
+
+.brand{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  gap: 1rem;
 }
-#status {
-  margin-bottom: 12px;
-  color: #444;
-}
-.summary {
-  background: #f8f9fb;
-  padding: 12px;
+
+.brand-logo{
+  width:48px;
+  height:48px;
+  background: var(--brand-primary);
   border-radius: 6px;
-  margin-bottom: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-weight:700;
 }
-.table {
+
+.brand-title{ font-weight:600; }
+
+.container{
+  max-width: var(--max-width);
+  margin: 1.25rem auto;
+  padding: 0 1rem;
   width: 100%;
-  border-collapse: collapse;
 }
-.table th, .table td {
-  border: 1px solid #e1e4e8;
-  padding: 6px 8px;
-  text-align: left;
-  font-size: 13px;
+
+form{
+  background: #fff;
+  border: 1px solid #ececec;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(9,10,10,0.02);
 }
-.bad {
-  color: #a31;
+
+.mode-fieldset{
+  display:flex;
+  gap: 1rem;
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  align-items: center;
 }
-.slow {
-  color: #b36b00;
+
+.email-fields{
+  margin-bottom: 0.75rem;
 }
-.skipped {
-  color: #777;
+
+label{
+  display:block;
+  font-weight:600;
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"], textarea{
+  width:100%;
+  padding: 0.5rem;
+  border:1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--text);
+}
+
+textarea{ font-family: inherit; }
+
+.actions{
+  margin-top: 0.75rem;
+  display:flex;
+  gap: 0.5rem;
+  align-items:center;
+}
+
+.btn-primary{
+  background: var(--brand-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight:600;
+}
+
+.btn-secondary{
+  background: #fff;
+  border:1px solid #d1d5db;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.results{
+  margin-top: 1rem;
+  background: #fbfbfb;
+  border:1px dashed #e5e7eb;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.summary{ font-weight:700; margin-bottom: 0.5rem; }
+
+.issues{ list-style:none; padding-left:0; margin:0; display:grid; gap: 0.5rem; }
+
+.issue{
+  padding:0.5rem;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.03);
+  display:flex;
+  gap:0.75rem;
+  align-items:flex-start;
+}
+
+.issue .severity{
+  min-width: 72px;
+  font-weight:700;
+  text-transform:uppercase;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius:4px;
+}
+
+.issue.error .severity{ background: var(--danger); color: #fff; }
+.issue.warning .severity{ background: var(--warning); color: #fff; }
+.issue.info .severity{ background: #64748b; color: #fff; }
+.issue .message{ flex:1; }
+
+.notes{
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.site-footer{
+  margin-top:auto;
+  padding: 1rem;
+  border-top: 1px solid #f1f1f1;
+  text-align:center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .brand-title{ display:none; }
 }
