@@ -1,0 +1,52 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 24px;
+  color: #111;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+button {
+  padding: 8px 12px;
+  font-size: 16px;
+}
+#status {
+  margin-bottom: 12px;
+  color: #444;
+}
+.summary {
+  background: #f8f9fb;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  border: 1px solid #e1e4e8;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 13px;
+}
+.bad {
+  color: #a31;
+}
+.slow {
+  color: #b36b00;
+}
+.skipped {
+  color: #777;
+}
