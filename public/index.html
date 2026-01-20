@@ -3,20 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Page Quality Analyzer</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Content QA — Email / SMS (Prototype)</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <h1>Page Quality Analyzer</h1>
-    <p>Enter a URL to analyze links and resource response times.</p>
-    <div class="input-row">
-      <input id="urlInput" type="text" placeholder="https://example.com" />
-      <button id="analyzeBtn">Analyze</button>
+  <header class="site-header">
+    <div class="brand">
+      <!-- Replace with Proximus logo -->
+      <div class="brand-logo" aria-hidden="true">[Proximus logo]</div>
+      <div class="brand-title">Content QA — Email / SMS</div>
     </div>
-    <div id="status"></div>
-    <section id="results"></section>
+  </header>
+
+  <main class="container">
+    <form id="content-form" novalidate>
+      <fieldset class="mode-fieldset">
+        <legend>Message type</legend>
+        <label>
+          <input type="radio" name="mode" value="email" checked> Email
+        </label>
+        <label>
+          <input type="radio" name="mode" value="sms"> SMS
+        </label>
+      </fieldset>
+
+      <div id="email-fields" class="email-fields">
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" placeholder="Subject line for your email" />
+      </div>
+
+      <label for="body">Message text</label>
+      <textarea id="body" name="body" rows="10" placeholder="Write the email or SMS body here" required></textarea>
+
+      <div class="actions">
+        <button type="submit" id="check-button" class="btn-primary">Check content</button>
+        <button type="button" id="reset-button" class="btn-secondary">Reset</button>
+      </div>
+    </form>
+
+    <section id="results" class="results" aria-live="polite" aria-atomic="true">
+      <h2>Results</h2>
+      <div id="summary" class="summary" hidden></div>
+      <ul id="issues" class="issues" role="list"></ul>
+    </section>
+
+    <section class="notes">
+      <h3>Notes</h3>
+      <ul>
+        <li>This is a prototype. The checks are client-side heuristics—useful for quick QA and developer feedback.</li>
+        <li>Accessibility checks reference common WCAG 2.1 AA best-practices used for EU accessibility compliance (Web Accessibility Directive / EN 301 549).</li>
+      </ul>
+    </section>
   </main>
-  <script src="app.js"></script>
+
+  <footer class="site-footer">
+    <small>Prototype — update branding tokens in <code>styles.css</code></small>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
